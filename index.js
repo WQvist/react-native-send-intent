@@ -126,6 +126,12 @@ var SendIntentAndroid = {
     openAppWithUri(intentUri, extras) {
         return RNSendIntentAndroid.openAppWithUri(intentUri, extras || {});
     },
+    createAlarm(hour, minutes, messages) {
+        return RNSendIntentAndroid.createAlarm(hour, minutes, messages || "");
+    },
+    setTimer(seconds, message, skip_ui) {
+        return RNSendIntentAndroid.setTimer(seconds, message, skip_ui || "");
+    },
 };
 
 module.exports = SendIntentAndroid;

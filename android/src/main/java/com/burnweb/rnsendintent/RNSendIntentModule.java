@@ -853,6 +853,34 @@ public class RNSendIntentModule extends ReactContextBaseJavaModule {
         }
     }
 
+    @ReactMethod
+    public void createAlarm(int hour, int minutes, String message) {
+        Intent intent = new Intent(AlarmClock.ACTION_SET_ALARM)
+            .putExtra(AlarmClock.EXTRA_MESSAGE, message)
+            .putExtra(AlarmClock.EXTRA_HOUR, hour)
+            .putExtra(AlarmClock.EXTRA_MINUTES, minutes);
+
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+        if (intent.resolveActivity(this.reactContext.getPackageManager()) != null) {
+            this.reactContext.startActivity(intent);
+        }
+    }
+
+    @ReactMethod
+    public void setTimer(int seconds, String message, boolean skip_ui) {
+        Intent intent = new Intent(AlarmClock.ACTION_SET_TIMER )
+            .putExtra(AlarmClock.EXTRA_LENGTH, seconds)
+            .putExtra(AlarmClock.EXTRA_MESSAGE, message)
+            .putExtra(AlarmClock.EXTRA_SKIP_UI, skip_ui);
+
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+        if (intent.resolveActivity(this.reactContext.getPackageManager()) != null) {
+            this.reactContext.startActivity(intent);
+        }
+    }
+
     private final ActivityEventListener mActivityEventListener = new BaseActivityEventListener() {
       @Override
       public void onActivityResult(Activity activity, int requestCode, int resultCode, Intent data) {

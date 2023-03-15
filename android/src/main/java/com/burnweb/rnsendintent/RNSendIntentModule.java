@@ -854,7 +854,7 @@ public class RNSendIntentModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void setTimer(String seconds, String message, boolean skip_ui) {
+    public void setTimer(String seconds, String message, String skip_ui) {
         Intent intent = new Intent(android.provider.AlarmClock.ACTION_SET_TIMER )
             .putExtra(android.provider.AlarmClock.EXTRA_LENGTH, seconds)
             .putExtra(android.provider.AlarmClock.EXTRA_MESSAGE, message)

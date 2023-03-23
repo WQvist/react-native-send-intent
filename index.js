@@ -127,7 +127,7 @@ var SendIntentAndroid = {
         return RNSendIntentAndroid.openAppWithUri(intentUri, extras || {});
     },
     setTimer(seconds, message, skip_ui) {
-        return RNSendIntentAndroid.setTimer(seconds, extras || {});
+        return RNSendIntentAndroid.setTimer(seconds, message, skip_ui);
     },
 };
 

@@ -73,7 +73,7 @@ declare namespace SendIntentAndroid {
   const requestIgnoreBatteryOptimizations: () => Promise<boolean>
   const showIgnoreBatteryOptimizationsSettings: () => void
   const openAppWithUri: (intentUri: string, extras?: { [index: string]: string }) => Promise<boolean>
-  const setTimer: (seconds: string, message: string, skip_ui: string) => void
+  const setTimer: (seconds: string, message: string, skip_ui: string) => Promise<boolean>
   const TEXT_PLAIN: unique symbol
   const TEXT_HTML: unique symbol
 }

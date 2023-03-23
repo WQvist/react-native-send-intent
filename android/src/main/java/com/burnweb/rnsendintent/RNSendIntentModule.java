@@ -327,7 +327,7 @@ public class RNSendIntentModule extends ReactContextBaseJavaModule {
       sendIntent.putExtra(Intent.EXTRA_EMAIL, new String[]{recepientString});
       sendIntent.putExtra(Intent.EXTRA_SUBJECT, subject);
       sendIntent.putExtra(Intent.EXTRA_TEXT, body);
-      sendIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+      sendIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
       //Check that an app exists to receive the intent
       if (sendIntent.resolveActivity(this.reactContext.getPackageManager()) != null) {
@@ -855,10 +855,10 @@ public class RNSendIntentModule extends ReactContextBaseJavaModule {
 
     @ReactMethod
     public void setTimer(String seconds, String message, String skip_ui) {
-        Intent intent = new Intent(AlarmClock.ACTION_SET_TIMER);
-            intent.putExtra(AlarmClock.LENGTH, seconds);
-            intent.putExtra(AlarmClock.MESSAGE, message);
-            intent.putExtra(AlarmClock.SKIP_UI, true);
+        Intent intent = new Intent(AlarmClock.ACTION_SET_TIMER)
+            .putExtra(AlarmClock.LENGTH, seconds)
+            .putExtra(AlarmClock.MESSAGE, message)
+            .putExtra(AlarmClock.SKIP_UI, skip_ui);
 
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 

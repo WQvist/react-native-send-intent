@@ -327,7 +327,7 @@ public class RNSendIntentModule extends ReactContextBaseJavaModule {
       sendIntent.putExtra(Intent.EXTRA_EMAIL, new String[]{recepientString});
       sendIntent.putExtra(Intent.EXTRA_SUBJECT, subject);
       sendIntent.putExtra(Intent.EXTRA_TEXT, body);
-      sendIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+      sendIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
 
       //Check that an app exists to receive the intent
       if (sendIntent.resolveActivity(this.reactContext.getPackageManager()) != null) {

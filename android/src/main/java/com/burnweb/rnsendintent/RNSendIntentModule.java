@@ -12,6 +12,7 @@ import android.os.Build;
 import android.os.Environment;
 import android.os.Parcelable;
 import android.os.PowerManager;
+import android.provider.AlarmClock;
 import android.provider.CalendarContract.Calendars;
 import android.provider.CalendarContract.Events;
 import android.provider.CalendarContract;
@@ -855,10 +856,10 @@ public class RNSendIntentModule extends ReactContextBaseJavaModule {
 
     @ReactMethod
     public void setTimer(String seconds, String message, String skip_ui) {
-        Intent intent = new Intent(Intent.ACTION_SET_TIMER)
-            .putExtra(Intent.LENGTH, seconds)
-            .putExtra(Intent.MESSAGE, message)
-            .putExtra(Intent.SKIP_UI, skip_ui);
+        Intent intent = new Intent(AlarmClock.ACTION_SET_TIMER)
+            .putExtra(AlarmClock.EXTRA_LENGTH, seconds)
+            .putExtra(AlarmClock.EXTRA_MESSAGE, message)
+            .putExtra(AlarmClock.EXTRA_SKIP_UI, skip_ui);
 
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
